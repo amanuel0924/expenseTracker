@@ -2,7 +2,7 @@ import Expenses from "../ExpenseComp/Expenses"
 import "./ExpenseForm.css"
 import React, { useState } from "react"
 const ExpenseForm = () => {
-  //   const [inputs, setInputs] = useState({ title: "", amount: "", date: "" })
+  //const [inputs, setInputs] = useState({ title: "", amount: "", date: "" })
   const [title, setTitle] = useState("")
   const [amount, setAmount] = useState("")
   const [date, setDate] = useState("")
@@ -33,7 +33,12 @@ const ExpenseForm = () => {
       amount: amount,
       date: new Date(date),
     }
+    //console.log(inputs)
+    setAmount("")
+    setTitle("")
+    setDate("")
     console.log(expenseData)
+    //setInputs({ title: "", amount: "", date: "" })
   }
 
   return (
@@ -41,15 +46,22 @@ const ExpenseForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>title</label>
-          <input type="text" onChange={handleTitile} />
+          <input type="text" value={title} onChange={handleTitile} />
         </div>
         <div className="new-expense__control">
           <label>amount</label>
-          <input type="number" min="0.01" step="0.01" onChange={handleAmaunt} />
+          <input
+            type="number"
+            min="0.01"
+            value={amount}
+            step="0.01"
+            onChange={handleAmaunt}
+          />
         </div>
         <div className="new-expense__control">
           <label>date</label>
           <input
+            value={date}
             type="date"
             min="2019-01-01"
             max="2023-03-01"
