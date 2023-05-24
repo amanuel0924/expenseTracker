@@ -1,3 +1,4 @@
+import Expenses from "../ExpenseComp/Expenses"
 import "./ExpenseForm.css"
 import React, { useState } from "react"
 const ExpenseForm = () => {
@@ -26,30 +27,29 @@ const ExpenseForm = () => {
     // })
   }
   function handleSubmit(e) {
-    //e.priventdefault()
+    e.preventDefault()
+    const expenseData = {
+      title: title,
+      amount: amount,
+      date: new Date(date),
+    }
+    console.log(expenseData)
   }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>title</label>
-          <input type="text" value={inputs.title} onChange={handleTitile} />
+          <input type="text" onChange={handleTitile} />
         </div>
         <div className="new-expense__control">
           <label>amount</label>
-          <input
-            type="number"
-            min="0.01"
-            step="0.01"
-            value={inputs.amount}
-            onChange={handleAmaunt}
-          />
+          <input type="number" min="0.01" step="0.01" onChange={handleAmaunt} />
         </div>
         <div className="new-expense__control">
           <label>date</label>
           <input
-            value={inputs.date}
             type="date"
             min="2019-01-01"
             max="2023-03-01"
@@ -58,9 +58,7 @@ const ExpenseForm = () => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type="submit" onSubmit={handleSubmit}>
-          Add expense
-        </button>
+        <button type="submit">Add expense</button>
       </div>
     </form>
   )
