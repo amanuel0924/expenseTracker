@@ -1,4 +1,3 @@
-import Expenses from "../ExpenseComp/Expenses"
 import "./ExpenseForm.css"
 import React, { useState } from "react"
 const ExpenseForm = (props) => {

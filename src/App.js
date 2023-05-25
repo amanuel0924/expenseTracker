@@ -2,7 +2,7 @@ import "./App.css"
 
 import Expenses from "./Componet/ExpenseComp/Expenses"
 import NewExpense from "./Componet/NewExpense/NewExpense"
-import React, { useState } from "react"
+import React from "react"
 function App() {
   const expense = [
     {
