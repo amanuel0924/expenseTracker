@@ -2,6 +2,7 @@ import "./App.css"
 
 import Expenses from "./Componet/ExpenseComp/Expenses"
 import NewExpense from "./Componet/NewExpense/NewExpense"
+import React, { useState } from "react"
 function App() {
   const expense = [
     {
@@ -23,10 +24,13 @@ function App() {
       price: 30,
     },
   ]
+  const addExpense = (expense) => {
+    console.log(expense)
+  }
   return (
     <div>
       <h1>Expense list</h1>
-      <NewExpense />
+      <NewExpense onAddExp={addExpense} />
       <Expenses expense={expense} />
     </div>
   )
